@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Add New Book</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <form (ngSubmit)="saveBook()" #bookForm="ngForm">
+        
+        <!-- <div class="form-group">
+          <label for="name">ISBN</label>
+          <input type="text" class="form-control" [(ngModel)]="book.isbn" name="isbn" required>
+        </div> -->
+
+        <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name"
+               required
+               pattern="[a-zA-Z][a-zA-Z ]+"
+               [(ngModel)]="book.isbn" name="isbn"
+               #name="ngModel">
+               <!--pristine- True if user has not interacted with the control yet. -->
+        <div [hidden]="name.valid || name.pristine" 
+             class="alert alert-danger">
+              <div [hidden]="!name.hasError('required')">Name is required</div>
+          <div [hidden]="!name.hasError('pattern')">Only alphabetsallowed</div>
+        </div>
+      </div>
+        <div class="form-group">
+          <label for="name">Title</label>
+          <input type="text" class="form-control" [(ngModel)]="book.title" name="title" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success" [disabled]="!bookForm.form.valid">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

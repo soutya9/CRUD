@@ -1,0 +1,37 @@
+
+
+<!-- <li><a [routerLink]="['/addBook']">Send</a></li>
+  <li><a [routerLink]="['/view']">Recieve</a></li>
+  <li><a [routerLink]="['/edit']">Update</a></li>
+  <li><a [routerLink]="['/login']">login</a></li>
+  <router-outlet></router-outlet>
+ -->
+ 
+
+<div class="page-header">
+  <h1>CRUD </h1>
+  <small>Mean stack dummy</small>
+</div>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#" [routerLink]="['/addBook']" >Send <span class="sr-only">(current)</span></a></li>
+        <li><a href="#" [routerLink]="['/view']">Recieve</a></li>
+        <li><a href="#" [routerLink]="['/edit']">Update</a></li>
+ 		<li><a href="#" [routerLink]="['/login']">login</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
