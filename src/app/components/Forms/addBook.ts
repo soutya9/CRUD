@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { DonorFormService } from '../.././services/donorForm.service';
 import { Router } from '@angular/router';
-/*import { donor } from './donorform1';*/
+
 @Component({
   moduleId : module.id,
   selector: 'addBook',

@@ -6,17 +6,21 @@ import { Home} from './components/Forms/Home';
 import { viewBook } from './components/Forms/viewBook';
 import { addBook } from './components/Forms/addBook';
 import { DonorFormService } from './services/donorForm.service';
-import { login} from './components/Forms/login';
+import { login } from './components/Forms/login';
+import { register } from './components/Forms/register';
 import { AuthGuardService} from './services/loginservice';
 import { AuthGuard} from './services/authguard';
 
 export const router: Routes = [
+{path:'logout', component:login},
 {path:'login', component:login},
+{path:'register', component: register},
 {
         path: '',/*if no path*/
         component:Home,/*go to cool*/
         canActivate: [AuthGuard],/*canActive avoids routing to other pages. Allows 
                                    route only when AuthGuard service is valid */
+
         children: [
 
 /*sub routes or children routes of cool component*/

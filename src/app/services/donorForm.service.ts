@@ -15,10 +15,12 @@ export class DonorFormService {
 constructor(private http :Http,private router: Router,private route: ActivatedRoute){
 }
 
+saveRegistration(cred : any): Observable<any>{
+  return this.http.post('/api/newuser', cred);
+}
+
 saveDonorForm(formobj : any) : Observable<any>{
 return this.http.post('/api/user', formobj); 
-/*console.log(formobj);*/
-
 }
 
 getUsers() : Observable<any>{
@@ -26,8 +28,8 @@ return this.http.get('/api/users').map((res:Response)=><any>res.json());
 }
 
 deleteTodo(id:any){
-        return this.http.delete('/api/delete/'+id);
-    }
+return this.http.delete('/api/delete/'+id);
+}
 
 showBook(id:any) : Observable<any>{
 return this.http.get('/api/get/'+id).map((res:Response)=><any>res.json()); 

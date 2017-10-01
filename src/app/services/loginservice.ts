@@ -7,6 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AuthGuardService {
 isLoggedIn: boolean = false;
   redirectUrl: string;
+  value: string;
 
     constructor(private http: Http, private route: ActivatedRoute,
         private router: Router) { }
@@ -29,6 +30,7 @@ if(response){
  this.router.navigate(['/addBook']);
  /*if matched, set isloggedin to true n redirect*/
  this.isLoggedIn = true;
+ console.log("logged in")
 
 }
 else{
@@ -39,5 +41,12 @@ else{
 return this.isLoggedIn;
 
             });
-    }   
+    }  
+
+  /*logout(): any {
+    this.value="logged out";
+    this.isLoggedIn = false;
+    this.router.navigate(['/login']);
+    
+  }*/
 }

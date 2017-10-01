@@ -12,10 +12,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 var mongoose = require('mongoose');
-var schema = require('./db');/*validation schemas*/
+var schema = require('./db');/*validation schemas for additem*/
+var registerschema = require('./dbs');/*validation schemas for register. create and edit schema file(eg. dbs) manually*/
 mongoose.connect('mongodb://localhost:27017/rambo');/*connect to mongodb*/
+var DonorForm = mongoose.model("DonorForm",schema,'dime');/*for additem*/
+var NewReg = mongoose.model("NewReg",registerschema,'rambo');/*for registration*/
 
-var DonorForm = mongoose.model("DonorForm",schema,'dime');
 
 app.post('/login',function(req,res,next){/*posting data to db*/
 var user=req.body;/*get rid of junk data in body parser n save to user. mandatory*/
@@ -39,6 +41,18 @@ db.rambo.findOne({
 });
 
 
+app.post('/api/newuser', function(req, res) {
+    var reg = new NewReg(req.body);
+    console.log(req.body);
+    reg.save(function(err, result) {
+        if (err) {
+            res.json({
+                'err':"Error"
+            })
+        }
+         res.json(reg); 
+    });
+});
 
 
 app.get('/api/users', function(req, res) {
@@ -73,11 +87,8 @@ console.log(res.body);*/
 
         }
         
-         res.json(form);
-         
-        
+         res.json(form); 
     });
-
 });
 
 

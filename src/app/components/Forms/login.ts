@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router , ActivatedRoute } from '@angular/router';
 import { AuthGuardService} from '../.././services/loginservice';
 
 @Component({
@@ -12,6 +12,7 @@ export class login implements OnInit {
     model: any = {};
     loading = false;
     returnUrl: string;
+    value={};
 
     constructor(
         private route: ActivatedRoute,/*use only whem using snapshot*/
@@ -37,4 +38,11 @@ export class login implements OnInit {
                     this.loading = false;
                 });
     }
+
+    /*logOut() {
+
+    console.log("in logout")
+    this.value=this.authenticationService.logout();
+    console.log(this.value)
+  }*/
 }
