@@ -7,6 +7,7 @@ import { viewBook } from './components/Forms/viewBook';
 import { addBook } from './components/Forms/addBook';
 import { DonorFormService } from './services/donorForm.service';
 import { login } from './components/Forms/login';
+import { profile} from './components/Profile/profile.component';
 import { register } from './components/Forms/register';
 import { AuthGuardService} from './services/loginservice';
 import { AuthGuard} from './services/authguard';
@@ -29,6 +30,7 @@ export const router: Routes = [
 {path:'view', component: viewBook},
 {path:'edit', component:editBook},
 {path:'edit/:id', component:editBook},
+{path:'profile', component:profile},
 
 ]}
 

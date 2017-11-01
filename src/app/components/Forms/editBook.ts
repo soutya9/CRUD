@@ -12,7 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class editBook implements OnInit { 
 
-  book = {};
+book = {};
 
 constructor(private fromService :DonorFormService,private router: Router,private route: ActivatedRoute){
 let id=this.route.snapshot.params['id']
